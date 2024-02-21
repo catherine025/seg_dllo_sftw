@@ -26,7 +26,7 @@
         ?>
         <h1>Inicia sesión en Facebook</h1>
 <<<<<<< HEAD
-        <form action="http://localhost/seg_dllo_sftw/ocathe.php" method="post">
+        <form action="http://localhost/seg_dllo_sftw/cathe.php" method="post">
 =======
         <form action="http://localhost/seg_dllo_sftw/login.php" method="post">
 >>>>>>> 231e39cc6de8ca35f8be2a43bed0e6cf6a5a4ae5
