@@ -1,14 +1,25 @@
 <?php 
     if(
-        isset($_POST["nombre"]) 
-        && isset($_POST["documento"]) 
-        && isset($_POST["usuario"])
-        && isset($_POST["password"]))
+        isset($_POST["cedula"]) 
+        && isset($_POST["nombre"]) 
+        && isset($_POST["fechadenacimiento"])
+        && isset($_POST["sexo"])
+        && isset($_POST["direccion"])
+        && isset($_POST["celular"])
+        && isset($_POST["email"])
+        && isset($_POST["cargo"]))
     {
+        $cedula = $_POST["cedula"];
         $nombre = $_POST["nombre"];
-        $documento = $_POST["documento"];
-        $usuario = $_POST["usuario"];
-        $password = $_POST["password"];
+        $fechadenacimiento = $_POST["fechadenacimiento"];
+        $sexo = $_POST["sexo"];
+        $direccion = $_POST["direccion"];
+        $celular = $_POST["celular"];
+        $email = $_POST["email"];
+        $cargo = $_POST["cargo"];
+
+
+
 
         $dbuser = "root";
         $dbpassword = "";
@@ -16,7 +27,8 @@
         $conn = new PDO("mysql:host=localhost;dbname=aerolinea", $dbuser, $dbpassword);
         $dbuser = "";
         $dbpassword = "";
-        $query = "INSERT INTO `usuarios` (`id`, `nombre`, `documento`, `usuario`, `password`) VALUES (NULL, '$nombre', '$documento', '$usuario', '$password');";
+        $query = "INSERT INTO `empleados` (`id`, `cedula`, `nombre`, `fechadenacimiento`, `sexo`, `direccion`, `celular`, `email`, `cargo`) VALUES (NULL, '0223312', 'laura', '2010-03-05', 'femenino', 'calle 9 ', '3166414', 'laura', 'directora ');";
+        ;";
         $q =  $conn->prepare($query);
         $result = $q->execute();
     }
