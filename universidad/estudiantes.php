@@ -19,10 +19,10 @@
         $dbuser = "root";
         $dbpassword = "";
 
-        $conn = new PDO("mysql:host=localhost;dbname=umanizales", $dbuser, $dbpassword);
+        $conn = new PDO("mysql:host=localhost;dbname=universidad", $dbuser, $dbpassword);
         $dbuser = "";
         $dbpassword = "";
-        $query = "INSERT INTO `empleados` (`id`, `cedula`, `nombre`, `fechadenacimiento`, `sexo`, `direccion`, `celular`, `email`, `cargo`) VALUES (NULL, '$cedula', '$nombre', '$fechadenacimiento', '$sexo', '$direccion', '$celular', '$correo', '$cargo');";
+        $query = "INSERT INTO `empleados` (`id`, `cedula`, `nombre`, `fechadenacimiento`, `sexo`, `direccion`, `celular`, `email`) VALUES (NULL, '$cedula', '$nombre', '$fechadenacimiento', '$sexo', '$direccion', '$celular', '$correo');";
         $q =  $conn->prepare($query);
         $result = $q->execute();
     }
@@ -30,10 +30,15 @@
 <h1>Registro de pasajeros</h1>
 <hr/>
 <form action="" method="post">
+
+    Cedula : <input type="text" name="cedula"> <br>
     Nombre: <input type="text" name="nombre"> <br>
-    Documento: <input type="text" name="documento"> <br>
-    Usuario: <input type="text" name="usuario"><br>
-    Password: <input type="password" name="password">
+    Fecha de Nacimiento: <input type="text" name="fechadenacimiento"><br>
+    Sexo: <input type="text" name="sexo"><br>
+    Dirección: <input type="text" name="direccion"><br>
+    Celular: <input type="text" name="celular"><br>
+    Email: <input type="text" name="email"><br>
+
     <hr>
     <input type="submit" value="Registrarme">
 </form>

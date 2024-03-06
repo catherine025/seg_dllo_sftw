@@ -1,33 +1,32 @@
 <?php 
     if(
-        isset($_POST["nombre"]) 
-        && isset($_POST["documento"]) 
-        && isset($_POST["usuario"])
-        && isset($_POST["password"]))
+        isset($_POST["placa"]) 
+        && isset($_POST["color"]) 
+        && isset($_POST["fechaderegistro"]))
     {
-        $nombre = $_POST["nombre"];
-        $documento = $_POST["documento"];
-        $usuario = $_POST["usuario"];
-        $password = $_POST["password"];
+        $placa = $_POST["placa"];
+        $color = $_POST["color"];
+        $fechaderegistro = $_POST["fechaderegistro"];
 
         $dbuser = "root";
         $dbpassword = "";
 
-        $conn = new PDO("mysql:host=localhost;dbname=aerolinea", $dbuser, $dbpassword);
+        $conn = new PDO("mysql:host=localhost;dbname=universidad", $dbuser, $dbpassword);
         $dbuser = "";
         $dbpassword = "";
-        $query = "INSERT INTO `usuarios` (`id`, `nombre`, `documento`, `usuario`, `password`) VALUES (NULL, '$nombre', '$documento', '$usuario', '$password');";
+        $query = "INSERT INTO `usuarios` (`id`, `placa`, `color`, `fechaderegistro`) VALUES (NULL, '$placa', '$color', '$fechaderegistro');";
         $q =  $conn->prepare($query);
         $result = $q->execute();
     }
+
+
 ?>
-<h1>Registro de pasajeros</h1>
+<h1>Registro de Vehiculos </h1>
 <hr/>
 <form action="" method="post">
-    Nombre: <input type="text" name="nombre"> <br>
-    Documento: <input type="text" name="documento"> <br>
-    Usuario: <input type="text" name="usuario"><br>
-    Password: <input type="password" name="password">
+    Placa: <input type="text" name="placa"> <br>
+    Color: <input type="text" name="color"> <br>
+    Fecha der egistro: <input type="text" name="fechaderegistro"><br>
     <hr>
     <input type="submit" value="Registrarme">
 </form>
