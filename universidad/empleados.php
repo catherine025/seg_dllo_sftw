@@ -21,13 +21,13 @@
         $cargo = $_POST["cargo"];
 
 
-        $dbuser = "root";
-        $dbpassword = "";
+        $dbuser = "cathe";
+        $dbpassword = "cathe1234";
 
          $conn = new PDO("mysql:host=localhost;dbname=universidad", $dbuser, $dbpassword);
          $dbuser = "";
          $dbpassword = "";
-         $query = "INSERT INTO `empleados` (`id`, `cedula`, `nombre`, `fechadenacimiento`, `sexo`, `direccion`, `celular`, `email`, `cargo`) VALUES (NULL, '$cedula', '$nombre', '$fechadenacimiento', '$sexo', '$direccion', '$celular', '$correo', '$cargo');";
+         $query = "INSERT INTO `empleados` (`id`, `cedula`, `nombre`, `fechadenacimiento`, `sexo`, `direccion`, `celular`, `email`, `cargo`) VALUES (NULL, '$cedula', '$nombre', '$fechadenacimiento', '$sexo', '$direccion', '$celular', '$email', '$cargo');";
         
         $q =  $conn->prepare($query);
         $result = $q->execute();
