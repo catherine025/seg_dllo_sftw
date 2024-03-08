@@ -22,12 +22,12 @@
         $conn = new PDO("mysql:host=localhost;dbname=universidad", $dbuser, $dbpassword);
         $dbuser = "";
         $dbpassword = "";
-        $query = "INSERT INTO `empleados` (`id`, `cedula`, `nombre`, `fechadenacimiento`, `sexo`, `direccion`, `celular`, `email`) VALUES (NULL, '$cedula', '$nombre', '$fechadenacimiento', '$sexo', '$direccion', '$celular', '$correo');";
+        $query = "INSERT INTO `estudiantes` (`id`, `cedula`, `nombre`, `fechadenacimiento`, `sexo`, `direccion`, `celular`, `email`) VALUES (NULL, '$cedula', '$nombre', '$fechadenacimiento', '$sexo', '$direccion', '$celular', '$email');";
         $q =  $conn->prepare($query);
         $result = $q->execute();
     }
 ?>
-<h1>Registro de pasajeros</h1>
+<h1>Registro de Estudiantes</h1>
 <hr/>
 <form action="" method="post">
 

@@ -35,7 +35,7 @@
 
 
 ?>
-<h1>Registro de pasajeros</h1>
+<h1>Registro de Empleados</h1>
 <hr/>
 <form action="" method="post">
 

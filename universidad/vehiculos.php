@@ -14,7 +14,7 @@
         $conn = new PDO("mysql:host=localhost;dbname=universidad", $dbuser, $dbpassword);
         $dbuser = "";
         $dbpassword = "";
-        $query = "INSERT INTO `usuarios` (`id`, `placa`, `color`, `fechaderegistro`) VALUES (NULL, '$placa', '$color', '$fechaderegistro');";
+        $query = "INSERT INTO `vehiculos` (`id`, `placa`, `color`, `fechaderegistro`) VALUES (NULL, '$placa', '$color', '$fechaderegistro');";
         $q =  $conn->prepare($query);
         $result = $q->execute();
     }
@@ -26,7 +26,7 @@
 <form action="" method="post">
     Placa: <input type="text" name="placa"> <br>
     Color: <input type="text" name="color"> <br>
-    Fecha der egistro: <input type="text" name="fechaderegistro"><br>
+    Fecha de registro: <input type="text" name="fechaderegistro"><br>
     <hr>
     <input type="submit" value="Registrarme">
 </form>
