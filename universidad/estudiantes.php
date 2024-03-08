@@ -16,8 +16,8 @@
         $celular = $_POST["celular"];
         $email = $_POST["email"];
 
-        $dbuser = "root";
-        $dbpassword = "";
+        $dbuser = "cathe";
+        $dbpassword = "cathe1234";
 
         $conn = new PDO("mysql:host=localhost;dbname=universidad", $dbuser, $dbpassword);
         $dbuser = "";
