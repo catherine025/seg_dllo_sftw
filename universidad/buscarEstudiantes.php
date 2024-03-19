@@ -1,26 +1,26 @@
 <html>
     <head>
-        <title>Búsqueda de Empleados según el Sexo</title>
+        <title>Búsqueda de Estudiantes</title>
     </head>
     <body>
-        <h1>Buscar Cliente Empleados según el Sexo</h1>
+        <h1>Buscar Estudiantes por email</h1>
         <form action="" method="GET">
-        <strong> Digite el Sexo: </strong>
-            <input type="text" name="sexo">
+        <strong> Digite el Email: </strong>
+            <input type="text" name="email">
             
             <input type="submit" value="Buscar">
 
         </form>
         <?php 
-            if(isset($_GET["sexo"])){
-                $sexo = $_GET["sexo"];
-                echo "Búsqueda por $sexo";
+            if(isset($_GET["email"])){
+                $email = $_GET["email"];
+                echo "Búsqueda por $email";
 
                 $dbuser = "cathe";
                 $dbpassword = "cathe1234";
         
                 $conn = new PDO("mysql:host=localhost;dbname=universidad", $dbuser, $dbpassword);
-                $consultaSQL = $conn->prepare("SELECT sexo, nombre, fechadenacimiento, cargo FROM empleados WHERE sexo = '$sexo'");
+                $consultaSQL = $conn->prepare("SELECT email, cedula, nombre, direccion, celular FROM estudiantes WHERE email = '$email'");
                 $consultaSQL->execute();
         ?>
 
@@ -28,16 +28,19 @@
       
             <tr>
                 <th>
-                    Sexo
+                    Email
+                </th>
+                <th>
+                    Cedula
                 </th>
                 <th>
                     Nombre
                 </th>
                 <th>
-                    Fecha de Nacimiento
+                    Dirección
                 </th>
                 <th>
-                    Cargo
+                    Celular
                 </th>
             </tr>
         <?php
@@ -45,10 +48,11 @@
         ?>
 
                 <tr>
-                    <td><?php echo $row["sexo"] ?></td>
+                    <td><?php echo $row["email"] ?></td>
+                    <td><?php echo $row["cedula"] ?></td>
                     <td><?php echo $row["nombre"] ?></td>
-                    <td><?php echo $row["fechadenacimiento"] ?></td>
-                    <td><?php echo $row["cargo"] ?></td>
+                    <td><?php echo $row["direccion"] ?></td>
+                    <td><?php echo $row["email"] ?></td>
                 </tr>
 
         <?php
