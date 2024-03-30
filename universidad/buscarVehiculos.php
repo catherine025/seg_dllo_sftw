@@ -12,7 +12,7 @@
 
         </form>
 
-<!-- <html>
+!-- <html>
     <head>
         <title>Búsqueda de Vehiculos/title>
     </head>
@@ -25,7 +25,6 @@
             <input type="submit" value="Buscar">
 
         </form>
- -->
 
 
 
@@ -40,8 +39,27 @@
                 $dbpassword = "cathe1234";
         
                 $conn = new PDO("mysql:host=localhost;dbname=universidad", $dbuser, $dbpassword);
-                $consultaSQL = $conn->prepare("SELECT placa, color, fechaderegistro FROM vehiculos WHERE placa = '$placa'");
+                //$consultaSQL = $conn->prepare("SELECT placa, color, fechaderegistro FROM vehiculos WHERE placa = '$placa'");
+                //$consultaSQL->execute();
+
+                //Vulnerable a inyección SQL
+
+                $sentencia = "SELECT placa, color, fechaderegistro FROM vehiculos WHERE placa = '$placa";
+                $consultaSQL = $conn->prepare($sentencia);
                 $consultaSQL->execute();
+
+                //Seguro
+                // $sentencia = "SELECT placa, color, fechaderegistro FROM vehiculos WHERE placa = ':placa;";
+
+                // $consultaSQL = $conn->prepare($sentencia);
+                // $consultaSQL->execute(array(
+                //      ':placa' => $placa,
+                //  ));
+
+
+
+
+
         ?>
 
         <table border="1">

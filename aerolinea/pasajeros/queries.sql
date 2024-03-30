@@ -27,3 +27,4 @@ SELECT origen as desde, destino as hasta, aerolinea as operador
 FROM vuelos
 WHERE destino = 'cartagena' AND origen = 'medellin'
 
+------drop para eliminar tablas 

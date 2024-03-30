@@ -20,8 +20,31 @@
                 $dbpassword = "cathe1234";
         
                 $conn = new PDO("mysql:host=localhost;dbname=universidad", $dbuser, $dbpassword);
-                $consultaSQL = $conn->prepare("SELECT sexo, nombre, fechadenacimiento, cargo FROM empleados WHERE sexo = '$sexo'");
+                //$consultaSQL = $conn->prepare("SELECT sexo, nombre, fechadenacimiento, cargo FROM empleados WHERE sexo = '$sexo'");
+                //$consultaSQL->execute();
+
+                //Vulnerable a inyección SQL
+
+                $sentencia = "SELECT sexo, nombre, fechadenacimiento, cargo FROM empleados WHERE sexo = '$sexo'";
+                $consultaSQL = $conn->prepare($sentencia);
                 $consultaSQL->execute();
+
+                //Seguro
+                // $sentencia = "SELECT sexo, nombre, fechadenacimiento, cargo FROM empleados WHERE sexo = ':sexo;";
+
+                // $consultaSQL = $conn->prepare($sentencia);
+                // $consultaSQL->execute(array(
+                //      ':sexo' => $sexo,
+                //  ));
+
+                // masculino' UNION SELECT 'dummy xxx' as sexo, nombre as nombre, cedula as fechadenacimiento, celular as cargo FROM estudiantes; 
+
+
+        // 
+
+
+
+
         ?>
 
         <table border="1">

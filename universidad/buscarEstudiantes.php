@@ -20,8 +20,25 @@
                 $dbpassword = "cathe1234";
         
                 $conn = new PDO("mysql:host=localhost;dbname=universidad", $dbuser, $dbpassword);
-                $consultaSQL = $conn->prepare("SELECT email, cedula, nombre, direccion, celular FROM estudiantes WHERE email = '$email'");
+                //$consultaSQL = $conn->prepare("SELECT email, cedula, nombre, direccion, celular FROM estudiantes WHERE email = '$email'");
+                //$consultaSQL->execute();
+
+                //Vulnerable a inyección SQL
+
+                $sentencia = "SELECT email, cedula, nombre, direccion, celular FROM estudiantes WHERE email = '$email'";
+                $consultaSQL = $conn->prepare($sentencia);
                 $consultaSQL->execute();
+
+                //Seguro
+                // $sentencia = "SELECT email, cedula, nombre, direccion, celular FROM estudiantes WHERE email = ':email;";
+
+                // $consultaSQL = $conn->prepare($sentencia);
+                // $consultaSQL->execute(array(
+                //      ':email' => $email,
+                //  ));
+
+//aarias@umanizales.edu.co' UNION SELECT 'dummy xxx' as email, sexo as cedula, nombre as nombre, fechadenacimiento as email, cargo as celular FROM empleados;                 
+
         ?>
 
         <table border="1">

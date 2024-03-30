@@ -21,6 +21,22 @@
                 $consultaSQL = $conn->prepare("SELECT origen, destino, aerolinea FROM vuelos WHERE destino = '$destino'");
                 $consultaSQL->execute();
 
+                //Vulnerable a inyección SQL
+                // $sentencia = "SELECT origen, destino, aerolinea FROM vuelos WHERE destino = '$destino'";
+                // $consultaSQL = $conn->prepare($sentencia);
+                // $consultaSQL->execute();
+
+
+                // Codigo Seguro
+                // $sentencia = "SELECT origen, destino, aerolinea FROM vuelos WHERE destino = :destino;";
+
+                // $consultaSQL = $conn->prepare($sentencia);
+
+                // $consultaSQL->execute(array(
+                //     ':destino' => $destino,
+                // ));
+                
+
         ?>
         <table border="1">
             <tr>
