@@ -11,25 +11,6 @@
             <input type="submit" value="Buscar">
 
         </form>
-
-!-- <html>
-    <head>
-        <title>Búsqueda de Vehiculos/title>
-    </head>
-    <body>
-        <h1>Buscar Vehiculos por Numero de Placa</h1>
-        <form action="" method="GET">
-        <strong> Digite la Placa: </strong>
-        <input type="text" name="placa">
-            
-            <input type="submit" value="Buscar">
-
-        </form>
-
-
-
-
-
         <?php 
             if(isset($_GET["placa"])){
                 $placa = $_GET["placa"];
@@ -44,17 +25,16 @@
 
                 //Vulnerable a inyección SQL
 
-                $sentencia = "SELECT placa, color, fechaderegistro FROM vehiculos WHERE placa = '$placa";
-                $consultaSQL = $conn->prepare($sentencia);
-                $consultaSQL->execute();
+                // $sentencia = "SELECT placa, color, fechaderegistro FROM vehiculos WHERE placa = '$placa'";
+                // $consultaSQL = $conn->prepare($sentencia);
+                // $consultaSQL->execute();
 
                 //Seguro
-                // $sentencia = "SELECT placa, color, fechaderegistro FROM vehiculos WHERE placa = ':placa;";
-
-                // $consultaSQL = $conn->prepare($sentencia);
-                // $consultaSQL->execute(array(
-                //      ':placa' => $placa,
-                //  ));
+                $sentencia = "SELECT placa, color, fechaderegistro FROM vehiculos WHERE placa = :placa;";
+                $consultaSQL = $conn->prepare($sentencia);
+                $consultaSQL->execute(array(
+                    ':placa' => $placa,
+                ));
 
 
 
