@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Sistema de Pagos Online</title>
+    </head>
+    <body>
+        <h1>TU PAGO EXPRESS</h1>
+        <img src="tupagoexpressbottom.png" />
+
+        <form action="">
+            Nombre de Usuario: <input type="text" name="nombredeusuario" id="nombre" onkeypress="onNombreKeyPress(this);"/> <br>
+            Password <input type="password" name="password" />
+            Password confirmation <input type="password" name="passwordConfirmation" /> <br>          
+            Seleccione el banco para realizar el pago <select name="plataforma">
+                <option value="bancol">Bancolombia</option>
+                <option value="daviv">Davivienda</option>
+                <option value="cajaso">Caja Social</option>
+            </select> <br>
+            Metodo de pago <input type="radio" name="metododepago" value="p"/> PSE 
+            <input type="radio" name="metododepago" value="d"> Debito 
+            <input type="radio" name="metododepago" value="a"> ADDI <br>
+            <p>Terminos y Condiciones</p>
+           
+            <input type="checkbox" name="aceptoTerminoYCondiciones"> Acepto Terminos y Condiciones 
+            <br>
+
+            Color que mas le gusta <input type="color" name="colorQueMasLeGusta"> <br>
+
+            
+            <img src="tupagoexpress.png" />
+        </form>
+        <button onclick="registrarse()">Continuar</button>
+
+        <script type="text/JavaScript">
+            function  registrarse() {
+                let nombreElement = document.getElementById('nombre');
+                if(nombreElement.value == ''){
+                    nombreElement.style.background = 'red';
+                    nombreElement.focus();
+                    alert('Por favor ingrese el nombre.');
+                }
+                console.log({nombreElement});
+            }
+            
+            function onNombreKeyPress(nombreElement) {
+                nombreElement.style.background = 'none';
+            }
+            
+        </script>
+    </body>
+</html>

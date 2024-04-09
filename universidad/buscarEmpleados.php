@@ -3,7 +3,7 @@
         <title>Búsqueda de Empleados según el Sexo</title>
     </head>
     <body>
-        <h1>Buscar Cliente Empleados según el Sexo</h1>
+        <h1>Buscar Empleados según el Sexo</h1>
         <form action="" method="GET">
         <strong> Digite el Sexo: </strong>
             <input type="text" name="sexo">
@@ -25,17 +25,17 @@
 
                 //Vulnerable a inyección SQL
 
-                // $sentencia = "SELECT sexo, nombre, fechadenacimiento, cargo FROM empleados WHERE sexo = '$sexo'";
-                // $consultaSQL = $conn->prepare($sentencia);
-                // $consultaSQL->execute();
+                $sentencia = "SELECT sexo, nombre, fechadenacimiento, cargo FROM empleados WHERE sexo = '$sexo'";
+                $consultaSQL = $conn->prepare($sentencia);
+                $consultaSQL->execute();
 
                 //Seguro
-                $sentencia = "SELECT sexo, nombre, fechadenacimiento, cargo FROM empleados WHERE sexo = :sexo;";
+                // $sentencia = "SELECT sexo, nombre, fechadenacimiento, cargo FROM empleados WHERE sexo = :sexo;";
 
-                $consultaSQL = $conn->prepare($sentencia);
-                $consultaSQL->execute(array(
-                      ':sexo' => $sexo,
-                  ));
+                // $consultaSQL = $conn->prepare($sentencia);
+                // $consultaSQL->execute(array(
+                //       ':sexo' => $sexo,
+                //   ));
 
                 // masculino' UNION SELECT 'dummy xxx' as sexo, nombre as nombre, cedula as fechadenacimiento, celular as cargo FROM estudiantes; 
 
