@@ -26,7 +26,7 @@
             Color que mas le gusta <input type="color" name="colorQueMasLeGusta"> <br>
 
             
-            <img src="tupagoexpress.png" />
+            <!-- <img src="tupagoexpress.png" /> -->
         </form>
         <button onclick="registrarse()">Continuar</button>
 
@@ -38,6 +38,12 @@
                     nombreElement.focus();
                     alert('Por favor ingrese el nombre.');
                 }
+
+                if(nombreElement.value == 'cathe')
+                
+                {
+                    window.location.href = 'inicio.html'
+                } 
                 console.log({nombreElement});
             }
             
